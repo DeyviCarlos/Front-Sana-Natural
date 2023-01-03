@@ -1,0 +1,32 @@
+.title-pagina{
+    color: #fff;
+    background-color: #3cb815;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.container-contenido{
+    margin-top: 1rem;
+}
+.thead-color{
+    background-color: #3cb815;
+    color: #fff;
+}
+.ng-fa-icon{
+    color: #fff;
+}
+.card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-header h5,
+.card-header p{
+    margin: 0;
+}
+
+.card-body-btn a{
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 1rem;
+}

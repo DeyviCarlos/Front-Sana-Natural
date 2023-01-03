@@ -1,0 +1,17 @@
+.title-pagina{
+    color: #fff;
+    background-color: #3cb815;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.container-tabla{
+    margin-top: 1rem;
+}
+.thead-color{
+    background-color: #3cb815;
+    color: #fff;
+}
+.ng-fa-icon{
+    color: #fff;
+}

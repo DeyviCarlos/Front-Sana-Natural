@@ -1,0 +1,8 @@
+.footer {
+    background: forestgreen;
+    display: flex;
+    justify-content: center;
+}
+.copyrigth{
+    color: rgb(255, 255, 255);
+}

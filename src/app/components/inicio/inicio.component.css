@@ -1,0 +1,162 @@
+.content-carousel {
+    position: relative;
+    width: 100%;
+    min-height: 559px;
+    background: url(../../../assets/resource/img/fondo-final.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /*categorias */
+  .categoria-title {
+    color: #3cb815;
+    font-weight: bold;
+  }
+  
+  .btn-categorias {
+    padding: 0.6rem 1rem;
+    background: #3cb815;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 0.5rem;
+    max-width: 160px;
+    text-decoration: none;
+  }
+  
+  .btn-categoria {
+    padding: 0.6rem 1rem;
+    background: #3cb815;
+    color: #fff;
+    border-radius: 5rem;
+    column-gap: 0.5rem;
+    max-width: 160px;
+    display: inline-flex;
+    text-decoration: none;
+  }
+  
+  .btn-categoria:hover,
+  .btn-categorias:hover {
+    background: #f75f1d;
+    transition: 0.2s ease;
+  }
+  
+  .ng-fa-icon {
+    padding: 2px;
+    background: #fff;
+    color: #000000;
+    border-radius: 1rem;
+  }
+  
+  .title-categoria-card {
+    position: relative;
+  }
+  
+  .categotia-1 {
+    background: #f1dbc5;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card-categoria-header,
+  .card-categoria {
+    border: none;
+  }
+  
+  .card-header img {
+    width: 145px;
+    height: 100px;
+  }
+  
+  .card-header-contenedor {
+    width: 168px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /*productos */
+  .card-producto {
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 11px rgb(14 55 55 /15%);
+  }
+  
+  .card-productos-header {
+    border: none;
+  }
+  
+  .card-productos-header img {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .card-productos-header .price {
+    font-size: 1rem;
+    color: #f75f1d;
+    font-weight: bold;
+  }
+  
+  
+  .card-productos-header .ng-fa-icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #3cb815;
+    color: #fff;
+    border-radius: 0.5rem 0 0.5rem 0;
+    font-size: 20px;
+    padding: 6px;
+    cursor: pointer;
+  }
+  
+  .card-productos-header .ng-fa-icon:hover {
+    background: #f75f1d;
+    transition: 0.2s all linear;
+  }
+  
+  /*Nosotros */
+  .contenedor-nosotros {
+    max-height: 769px;
+  }
+  
+  .contenedor-nosotros img {
+    width: 100%;
+  }
+  
+  .titulo-nosotros {
+    color: #3cb815;
+    font-weight: bold;
+  }
+  
+  .nosotros-info p {
+    text-align: start;
+  }
+  
+  @media (max-width: 575px) {
+  
+    .section-title-categoria,
+    .section-btn-categoria {
+      justify-content: center !important;
+    }
+  
+    .card-productos-header img {
+      width: 260px;
+    }
+  
+    .nosotros-info{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .nosotros-info p{
+      text-align: center;
+    }
+   
+  }

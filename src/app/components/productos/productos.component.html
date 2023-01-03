@@ -1,0 +1,52 @@
+<div class="container">
+    <h1 class="title-pagina">
+        Productos
+    </h1>
+</div>
+<div class="container d-flex justify-content-center">
+    <div class="row w-100">
+        <div class="col-md-3">
+            <div class="container container-seleccion">
+                <div class="container-categoria pt-4">
+                    <h5 class="d-flex">Categoría:</h5>
+                    <div class="opciones-categoria">
+                        <div *ngFor="let categoria of listaCategorias" class="d-flex pt-2">
+                            <input class="mr-2" type="checkbox" value="{{ categoria.nombre_categ }}" name="grupo1">{{ categoria.nombre_categ }}
+                        </div>
+                    </div>
+                </div>
+                <div class="container-enfermedad pt-4">
+                    <h5 class="d-flex">Padece de:</h5>
+                    <div class="opciones-enfermedad">
+                        <div *ngFor="let enfermedad of listaEnfermedades" class="d-flex pt-2">
+                            <input class="mr-2" type="checkbox">{{enfermedad.nombre_enfermedad}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <!--Prod 1-->
+                <div  class="col-12 col-sm-6 col-md-4 col-lg-3 mt-3" *ngFor="let producto of listaProductos">
+                    <div class="card card-producto">
+                        <div class="card-header card-productos-header">
+                            <div>
+                                <img  src="../assets/resource/img/osteoporosis.png" />
+                                <h5 class="card-title">{{ producto.nombre_prod }}</h5>
+                                <p class="card-text">
+                                    {{ producto.descripcion_prod }}
+                                </p>
+                                <p class="price">S/ {{ producto.precio_prod }}</p>
+                                <a (click)="agregarCarrito(producto)">
+                                    <fa-icon [icon]="carrito"></fa-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row de productos-->
+    </div>
+</div>

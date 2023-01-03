@@ -1,0 +1,85 @@
+.navbar {
+    z-index: 1000;
+    box-shadow: 0 8px 11px rgb(14 55 55 /15%);
+    padding: 20px 100px;
+    transition: 0.5s;
+}
+.nav-item{
+    text-align: center;
+    align-self: center;
+}
+.nav-link{
+    transition: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.section-login,
+.nav-principal{
+    align-items: center;
+    
+}
+.section-login ul{
+    align-items: center;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    background: #3cb815;
+    color: #fff;
+    border-radius: 5rem;
+}
+
+
+.navbar-light .navbar-brand {
+    color: #ff7e00;
+}
+.navbar-brand span{
+    color: #3cb815;
+}
+
+.navbar-light .navbar-brand:hover {
+    color: #ff7e00;
+}
+.col-8 .navbar-nav{
+    justify-content: space-around;
+}
+.col-4 .navbar-nav{
+    justify-content: end;
+}
+
+.active{
+    background: #3cb815;
+    border-radius: 5rem;
+    color: #fff !important;
+    transition: background 0.5s;
+}
+
+p{
+    margin-bottom: 0;
+}
+@media (max-width: 991px) {
+
+    .section-login,
+    .nav-principal {
+        display: block !important;
+
+    }
+
+    .col-8, .col-4{
+        width: 100%;
+    }
+    .nav-item{
+        align-self: initial;
+    }
+    .section-login-ul{
+        align-items: normal !important;
+    }
+
+}
+@media (max-width: 667px) {
+    .navbar{
+        justify-content: center;
+    }
+}

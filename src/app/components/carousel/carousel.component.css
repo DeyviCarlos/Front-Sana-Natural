@@ -1,0 +1,153 @@
+
+.carousel {
+    height: 559px;
+}
+.contenido-fondo-oscuro{
+    background: rgb(0, 0, 0,0.6);
+}
+
+.content-row-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-caption {
+    color: #0a0a0ad0;
+    position: relative;
+    width: 360px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-img {
+    height: 559px;
+    width: 40%;
+}
+
+.carousel-img img {
+    height: 410px;
+    width: 100%;
+    border-radius: 5rem;
+    border: solid;
+    background: #fdfff8a3;
+
+}
+
+.carousel-indicators li {
+    background-color: #ffffff;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color: #000000;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.carousel-title {
+    color: #3cb815;
+    font-weight: bold;
+    font-size: 36px;
+    width: 80%;
+}
+
+.carousel-description {
+    font-weight: bold;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    width: 75%;
+}
+
+.btn-catalogo {
+    padding: 0.6rem 1rem;
+    background: #3cb815;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 0.5rem;
+    max-width: 160px;
+    text-decoration: none;
+}
+
+.btn-catalogo:hover {
+    background: #f75f1d;
+    transition: 0.2s ease;
+
+}
+
+/*Color del icono dentro del boton del carousel */
+.ng-fa-icon{
+    padding: 2px ;
+    background: #fff;
+    color: #000000 ;
+    border-radius: 1rem;
+}
+
+@media (max-width: 991px) {
+    .carousel-img {
+        width: 400px;
+    }
+
+    .carousel-caption {
+        align-items: flex-start;
+    }
+
+    .carousel-caption p,
+    .carousel-caption h5 {
+        text-align: start;
+    }
+
+    .carousel-item .carousel-img img {
+        width: 70%;
+        height: 70%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .content-row-carousel {
+        display: block;
+    }
+
+    .carousel-caption {
+        align-items: center;
+        width: 100%;
+    }
+
+    .carousel-caption p,
+    .carousel-caption h5 {
+        text-align: center;
+    }
+
+    .carousel-img {
+        height: 40%;
+        position: relative;
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .carousel-img img {
+        width: 100%;
+    }
+
+
+    .carousel-title {
+        font-size: 28px;
+    }
+
+    .carousel-description {
+        font-size: 20px;
+    }
+}

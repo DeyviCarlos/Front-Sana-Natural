@@ -1,0 +1,49 @@
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6 mb-2">
+                    <div class="img-detalle">
+                        <img class="img-img-detalle" src="../assets/resource/img/osteoporosis.png" />
+                    </div>
+                </div>
+
+                <div class="col-6 mb-2">
+                    <div class="form-group">
+                        <form [formGroup]="productoForm" (ngSubmit)="agregarCarrito(elemento)">
+                            <div>
+                                <h5>{{elemento.nombre_prod}}</h5>
+                            </div>
+                            <div>
+                                <p><strong> Precio:</strong></p>
+                                <p>{{elemento.precio_prod}}</p>
+                            </div>
+                            <div>
+                                <p><strong>Stock:</strong></p>
+                                <p>{{elemento.stock_prod}}</p>
+                            </div>
+                            <div class="mb-2">
+                                <p><strong>Cantidad:</strong></p>
+                                <input formControlName="cantidad" id="cantidad" type="number" placeholder="cantidad"
+                                    value="1">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Agregar al carrito</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h6>Descripción:</h6>
+                <p>{{elemento.descripcion_prod}}</p>
+                <h6>Enfermedad: </h6>
+                <p>{{elemento.nombre_enfermedad}}</p>
+                <p>{{elemento.descripcion_enfermedad}}</p>
+                <h6>Categoría:</h6>
+                <p>{{elemento.nombre_categ}}</p>
+                <p>{{elemento.descrip_categ}}</p>
+            </div>
+        </div>
+
+    </div>
+</div>

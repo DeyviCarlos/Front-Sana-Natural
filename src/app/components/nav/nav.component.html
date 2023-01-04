@@ -16,7 +16,7 @@
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/productos" routerLinkActive="active">Productos</a>
                     </li>
-                    <li class="nav-item">
+                    <li *ngIf="false" class="nav-item">
                         <a class="nav-link" routerLink="/nosotros" routerLinkActive="active">Nosotros</a>
                     </li>
                     <li class="nav-item">
@@ -31,10 +31,10 @@
                 <div class="section-login">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0 section-login-ul">
                        <form [formGroup]="formBuscar" >
-                        <div class="nav-item">
-                            <input name="cadena" formControlName="cadena"  type="text" placeholder="Buscar" >
-                            <label for="">{{buscar}}</label>
-                        </div>
+                            <div class="nav-item">
+                                <input name="cadena" formControlName="cadena"  type="text" placeholder="Buscar" >
+                                <button (click)="buscarProductosNombre()" class="btn-buscar">Buscar</button>
+                            </div>
                        </form>
                         
                        
@@ -56,8 +56,9 @@
                                 <a class="dropdown-item nav-link" routerLinkActive="active" href="#"><fa-icon [icon]="sigout" clases="ml-2"></fa-icon> Cerrar Sesión</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a routerLink="/carrito" class=" nav-link"><fa-icon [icon]="carrito"></fa-icon></a>
+                        <li class="nav-item ">
+                            <a routerLink="/carrito" class="carrito-compra"><fa-icon [icon]="carrito"></fa-icon><span class="contador-carrito">{{contador}}</span></a>
+                            
                         </li>
 
                     </ul>

@@ -59,6 +59,39 @@
 p{
     margin-bottom: 0;
 }
+.carrito-compra{
+    position: relative;
+    color: var(--bs-nav-link-color);
+}
+.contador-carrito{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -10px;
+    right: -8px;
+    width: 15px;
+    height: 15px;
+    background: #ff7e00;
+    border-radius: 50%;
+    padding: 8px;
+    color: #fff;
+}
+.carrito-compra:hover{
+    color: #3cb815;
+}
+.btn-buscar{
+    background:#3cb815;
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    padding: 4px;
+}
+.btn-buscar:hover{
+    background:#377225;
+
+}
+
 @media (max-width: 991px) {
 
     .section-login,

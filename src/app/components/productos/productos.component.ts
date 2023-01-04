@@ -212,7 +212,9 @@ export class ProductosComponent implements OnInit {
         img_Prod: detproducto.img_Prod,
         nombre_prod: detproducto.nombre_prod,
         precio_prod: detproducto.precio_prod,
-        stock_prod: detproducto.stock_prod
+        stock_prod: detproducto.stock_prod,
+        cantidad: 1,
+        subTotal: 0.00
       }
 
       this.carritoProductos.push(detalleProducto)
@@ -222,6 +224,21 @@ export class ProductosComponent implements OnInit {
 
     
   }
+  buscarProductoxCategoria(categoria: any){
+    this.productoService.buscarProductoxCategoria(categoria.id_categoria).subscribe(data =>{
+      this.listaProductos = data.data;
+    },error => {
+      console.log(error);
+    })
 
+  }
+  buscarProductoxEnfermedad(enfermedad: any){
+    this.productoService.buscarProductoxEnfermedad(enfermedad.id_enfermedad).subscribe(data =>{
+      this.listaProductos = data.data;
+    },error => {
+      console.log(error);
+    })
+
+  }
 
 }

@@ -23,25 +23,22 @@ export class CarritoComponent implements OnInit {
     telefono: "",
     detalleCompraProducto: []
   };
-  cantidad: any;
 
-  montos: any = [];
   montoTotal: any;
-  montoLocal: any = [];
+  // montoLocal: any = [];
 
   constructor() {
-    this.cantidad = 1;
     this.montoTotal = 0.00
    }
 
   ngOnInit(): void {
     this.obtenerListaCarrito()
+    this.calcularMonto()
   }
 
   obtenerListaCarrito(){
-    this.montoTotal = 0.00
-    this.listaCarrito = JSON.parse(localStorage.getItem('listaproductos') || '[]')
-    this.calcularMonto()
+    // this.montoTotal = 0.00
+    this.listaCarrito = JSON.parse(localStorage.getItem('listaproductos') || '[]') 
   }
 
   eliminarProductoCarrito(producto: any){
@@ -54,29 +51,23 @@ export class CarritoComponent implements OnInit {
     localStorage.setItem('listaproductos', JSON.stringify(this.listaCarrito));
 
     this.obtenerListaCarrito();
+    this.calcularMonto();
   }
 
   calcularMonto(){
-    
-    
-    this.montoLocal = []
+    this.montoTotal = 0.00
+    this.listaCarrito.forEach((prod: any) => {
+      console.log(prod.precio_prod)
+      console.log(prod.cantidad)
+      prod.subTotal = prod.precio_prod*prod.cantidad
+      console.log( prod.subTotal)
+      // this.montoLocal.push(seccionMonto)
 
-    this.listaCarrito.forEach((prod: any,index: number) => {
-      let seccionMonto = {
-        idProducto: 0,
-        nombreProducto: "",
-        subTotal: 0.00,
-        cantidad: 0
-      }
-      seccionMonto.idProducto = prod.id_prod
-      seccionMonto.subTotal = prod.precio_prod*this.cantidad
-      seccionMonto.nombreProducto = prod.nombre_prod
-
-      this.montoLocal.push(seccionMonto)
-
-      this.montoTotal = this.montoTotal + seccionMonto.subTotal
+      this.montoTotal = this.montoTotal + prod.subTotal
       // this.cantidad = cantidadlocal
     });
+    localStorage.setItem('listaproductos', JSON.stringify(this.listaCarrito));
+  
   }
 
 

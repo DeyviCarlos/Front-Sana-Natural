@@ -10,16 +10,22 @@
                 <div class="container-categoria pt-4">
                     <h5 class="d-flex">Categoría:</h5>
                     <div class="opciones-categoria">
-                        <div *ngFor="let categoria of listaCategorias" class="d-flex pt-2">
-                            <input class="mr-2" type="checkbox" value="{{ categoria.nombre_categ }}" name="grupo1">{{ categoria.nombre_categ }}
+                        <div>
+                            <button (click)="listarProductos()" class="btn-selection" type="button">Todo</button>
+                        </div>
+                        <div *ngFor="let categoria of listaCategorias" class="">
+                            <button (click)="buscarProductoxCategoria(categoria)" class="btn-selection" type="button" value="{{ categoria.nombre_categ }}" name="grupo1">{{ categoria.nombre_categ }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="container-enfermedad pt-4">
                     <h5 class="d-flex">Padece de:</h5>
                     <div class="opciones-enfermedad">
-                        <div *ngFor="let enfermedad of listaEnfermedades" class="d-flex pt-2">
-                            <input class="mr-2" type="checkbox">{{enfermedad.nombre_enfermedad}}
+                        <div>
+                            <button (click)="listarProductos()" class="btn-selection" type="button">Todo</button>
+                        </div>
+                        <div *ngFor="let enfermedad of listaEnfermedades" class="">
+                            <button (click)="buscarProductoxEnfermedad(enfermedad)" class="btn-selection" type="button">{{enfermedad.nombre_enfermedad}}</button>
                         </div>
                     </div>
                 </div>
@@ -33,7 +39,7 @@
                         <div class="card-header card-productos-header">
                             <div>
                                 <img  src="../assets/resource/img/osteoporosis.png" />
-                                <h5 class="card-title">{{ producto.nombre_prod }}</h5>
+                                <a [routerLink]="['/detalle-producto',producto.id_prod]" class="card-title">{{ producto.nombre_prod }}</a>
                                 <p class="card-text">
                                     {{ producto.descripcion_prod }}
                                 </p>

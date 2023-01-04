@@ -21,6 +21,9 @@
                                     CANTIDAD
                                 </th>
                                 <th scope="col">
+                                    SUBTOTAL
+                                </th>
+                                <th scope="col">
                                     ACCIONES
                                 </th>
                             </tr>
@@ -34,7 +37,10 @@
                                     {{producto.precio_prod}}
                                 </td>
                                 <td>
-                                    <input type="number" [(ngModel)]="cantidad" >
+                                    {{producto.cantidad}}
+                                </td>
+                                <td>
+                                    {{producto.subTotal}}
                                 </td>
                                 <td>
                                     <button (click)="eliminarProductoCarrito(producto)" class="btn btn-danger">
@@ -52,13 +58,13 @@
                         <h5 >Total:</h5>
                         <p><strong>S/</strong> {{montoTotal}}</p>
                     </div>
-                    <div class="card-body" *ngFor="let producto of montoLocal; ">
+                    <!-- <div class="card-body" *ngFor="let producto of montoLocal; ">
                         <div class="card-body-btn d-flex justify-content-between">
                             <h6 >{{ producto.nombreProducto }}</h6>
                             <p><strong>S/</strong>{{producto.subTotal }}</p>
                         </div>
-                    </div>
-                    <div class="card-footer">
+                    </div> -->
+                    <div class="card-body">
                         <div class="card-body-btn">
                             <a routerLink="/comprar" class="btn btn-primary">Pagar</a>
                         </div>

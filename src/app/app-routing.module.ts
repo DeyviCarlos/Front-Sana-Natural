@@ -10,6 +10,7 @@ import { MisComprasComponent } from './components/mis-compras/mis-compras.compon
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
+import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
 
 const routes: Routes = [
   {path: 'registrar', component: RegistrarComponent},
@@ -21,7 +22,9 @@ const routes: Routes = [
     {path: 'productos', component: ProductosComponent},
     {path: 'mis-compras', component: MisComprasComponent},
     {path: 'carrito', component: CarritoComponent},
-    {path: 'comprar', component: ComprarComponent}
+    {path: 'comprar', component: ComprarComponent},
+    {path: 'detalle-producto/:id',component: DetalleProductoComponent}
+
   ]},
   {path: '**', redirectTo: '', pathMatch: 'full'}
   //login-sistema

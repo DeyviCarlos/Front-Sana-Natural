@@ -19,6 +19,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { ComprarComponent } from './components/comprar/comprar.component';
+import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ComprarComponent } from './components/comprar/comprar.component';
     MainLayoutComponent,
     FooterComponent,
     CarouselComponent,
-    ComprarComponent
+    ComprarComponent,
+    DetalleProductoComponent
   ],
   imports: [
     BrowserModule,

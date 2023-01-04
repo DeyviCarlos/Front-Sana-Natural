@@ -13,14 +13,17 @@ export class ProductoService {
   buscarProductoxNombre(): Observable<any>{
     return this.http.get(environment.apiUrl+'/enfermedades')
   }
-  buscarProductoxCategoria(): Observable<any>{
-    return this.http.get(environment.apiUrl+'/enfermedades')
+  buscarProductoxCategoria(idCategoria: any): Observable<any>{
+    return this.http.get(environment.apiUrl+'/productos/categoria/'+`${idCategoria}`)
   }
-  buscarProductoxEnfermedad(): Observable<any>{
-    return this.http.get(environment.apiUrl+'/enfermedades')
+  buscarProductoxEnfermedad(idEnfermedad: any): Observable<any>{
+    return this.http.get(environment.apiUrl+'/productos/enfermedad/'+`${idEnfermedad}`)
   }
   getListarProductos(): Observable<any>{
     return this.http.get(environment.apiUrl+'/productos')
+  }
+  buscarProductoxId(id: any){
+    return this.http.get(environment.apiUrl+'/productos/'+id)
   }
 
 }

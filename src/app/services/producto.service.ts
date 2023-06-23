@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -10,8 +10,8 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  buscarProductoxNombre(): Observable<any>{
-    return this.http.get(environment.apiUrl+'/enfermedades')
+  buscarProductoxNombre(cadena: any): Observable<any>{
+    return this.http.get(environment.apiUrl+'/productos/nombre/'+cadena )
   }
   buscarProductoxCategoria(idCategoria: any): Observable<any>{
     return this.http.get(environment.apiUrl+'/productos/categoria/'+`${idCategoria}`)

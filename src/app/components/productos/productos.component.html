@@ -8,27 +8,62 @@
         <div class="col-md-3">
             <div class="container container-seleccion">
                 <div class="container-categoria pt-4">
+                    <h5 class="d-flex">Buscar Producto:</h5>
+                    <div class="opciones-categoria">
+                        <form [formGroup]="formBuscar" (submit)="buscarProductosNombre()">
+                            <div class="nav-item contenido-formbuscar">
+                                <input class="input-buscar" name="cadena" formControlName="cadena"  type="text" placeholder="Buscar" >
+                                <button class="btn-buscar"><fa-icon [icon]="iconBuscar"></fa-icon></button>
+                            </div>
+                       </form>
+                    </div>
+                </div>
+                <div class="container-categoria pt-4">
                     <h5 class="d-flex">Categoría:</h5>
                     <div class="opciones-categoria">
                         <div>
-                            <button (click)="listarProductos()" class="btn-selection" type="button">Todo</button>
+                            <button (click)="listarProductos()" class="btn-selection1" type="button">Todo</button>
                         </div>
                         <div *ngFor="let categoria of listaCategorias" class="">
-                            <button (click)="buscarProductoxCategoria(categoria)" class="btn-selection" type="button" value="{{ categoria.nombre_categ }}" name="grupo1">{{ categoria.nombre_categ }}</button>
+                            <button (click)="buscarProductoxCategoria(categoria)" class="btn-selection1" type="button" value="{{ categoria.nombre_categ }}" name="grupo1">{{ categoria.nombre_categ }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="container-enfermedad pt-4">
                     <h5 class="d-flex">Padece de:</h5>
                     <div class="opciones-enfermedad">
-                        <div>
-                            <button (click)="listarProductos()" class="btn-selection" type="button">Todo</button>
+                        <div class="">
+                            <button (click)="listarProductos()" class="btn-selection1" type="button">Todo</button>
                         </div>
                         <div *ngFor="let enfermedad of listaEnfermedades" class="">
-                            <button (click)="buscarProductoxEnfermedad(enfermedad)" class="btn-selection" type="button">{{enfermedad.nombre_enfermedad}}</button>
+                            <button (click)="buscarProductoxEnfermedad(enfermedad)" class="btn-selection1" type="button">{{enfermedad.nombre_enfermedad}}</button>
                         </div>
                     </div>
                 </div>
+                <!-- <div class="container-enfermedad pt-4">
+                    <h5 class="d-flex">Padece de:</h5>
+                    <div class="opciones-enfermedad">
+                        <form [formGroup]="formEnfermedades">
+                            <div class="d-flex">
+                                <div>
+                                    <input name="Todo"   type="checkbox">
+                                </div>
+                                <div>
+                                    <label >Todo </label>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex" *ngFor="let enfermedad of listaEnfermedades">
+                                <div  class="">
+                                    <input  name="{{enfermedad.nombre_enfermedad}}" (change)="onChange()" type="checkbox">
+                                </div>
+                                <div>
+                                    <label >{{enfermedad.nombre_enfermedad}} </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> -->
             </div>
         </div>
         <div class="col-md-9">
@@ -38,7 +73,7 @@
                     <div class="card card-producto">
                         <div class="card-header card-productos-header">
                             <div>
-                                <img  src="../assets/resource/img/osteoporosis.png" />
+                                <img  src="{{producto.img_Prod}}"/>
                                 <a [routerLink]="['/detalle-producto',producto.id_prod]" class="card-title">{{ producto.nombre_prod }}</a>
                                 <p class="card-text">
                                     {{ producto.descripcion_prod }}
@@ -56,3 +91,8 @@
         <!-- end row de productos-->
     </div>
 </div>
+<!-- <div>
+    <label for="item-input">Add an item:</label>
+    <input type="text" id="item-input" #newItem>
+    <button type="button" (click)="addNewItem(newItem.value)">Add to parent's list</button>
+</div> -->

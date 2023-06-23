@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  //apiUrl: 'http://localhost:4000/api'
-  apiUrl: 'http://192.168.99.100:4000/api'
+  apiUrl: 'http://localhost:4000/api'
+  // apiUrl: 'http://192.168.99.100:4000/api'
+  // apiUrl: 'http://20.237.65.176:4000/api'
+  // apiUrl: 'https://apimsananatural.azure-api.net/api'
 };
 
 /*

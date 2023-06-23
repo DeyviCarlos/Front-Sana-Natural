@@ -16,10 +16,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { ComprarComponent } from './components/comprar/comprar.component';
 import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorInterceptor } from './interceptores/token-interceptor.interceptor';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { AuthSesionGuard } from './auth-sesion.guard';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,19 @@ import { DetalleProductoComponent } from './components/detalle-producto/detalle-
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthSesionGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorInterceptor,
+      multi: true
+    },
+    {
+      provide: JWT_OPTIONS,useValue: JWT_OPTIONS
+    },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

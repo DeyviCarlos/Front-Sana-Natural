@@ -1,70 +1,90 @@
-<div class="vh-100 d-flex justify-content-center align-items-center">
-    <div class="card">
-        <div class="card-body register-card-body">
-            <p class="login-box-msg">Registrate</p>
-            <form action="../../index.html" method="post">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Full name">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
+<div>
+    <img class="wave" alt="logo" src="./assets/resource/img/wave.png">
+    <div class="container-personalized">
+        <div class="img">
+            <img src="./assets/resource/img/icono-login.png" alt="">
+        </div>
+        <div class="login-container">
+            <form [formGroup]="formCliente" (ngSubmit)="registrarUsuario()">
+                <img class="avatar" src="./assets/resource/img/logo-natural.PNG" alt="Logo">
+                <p class="nombre-web">Sana <b>Natural</b></p>
+                <div class="input-div one">
+                    <div class="i">
+                        <fa-icon [icon]="iconUsuario"></fa-icon>
+                    </div>
+                    <div>
+                        <h5>Usuario</h5>
+                        <input formControlName="nombre" name="nombre" type="text" class="input-campo"
+                            placeholder="Dígite el dni">
+                    </div>
+                    
+                </div>
+                <div *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)" class="text-danger">
+                    <div class="d-flex" *ngIf="nombre?.errors?.['required']">
+                        (Nombre Completo requerido).
+                    </div>
+                    <div class="d-flex" *ngIf="nombre?.errors?.['minlength']">
+                        (Debe tener 3 caracteres como mínimo).
+                    </div>
+                    <div class="d-flex" *ngIf="nombre?.errors?.['maxlength']">
+                        (Debe tener 80 caracteres cpmo máximo).
+                    </div>
+                    <div class="d-flex" *ngIf="nombre?.errors?.['pattern']">
+                        (El patron es Nombre(s) Apellido(s) sin espacio al final).
                     </div>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
-                        </div>
+                <div class="input-div one">
+                    <div class="i">
+                        <fa-icon [icon]="iconCorreo"></fa-icon>
+                    </div>
+                    <div>
+                        <h5>Correo</h5>
+                        <input formControlName="correo" name="correo" type="email" class="input-campo"
+                            placeholder="Dígite el dni">
                     </div>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
+                <div *ngIf="correo?.invalid && (correo?.dirty || correo?.touched)" class="text-danger">
+                    <div class="d-flex" *ngIf="correo?.errors?.['required']">
+                        (Correo requerido).
+                    </div>
+                    <div class="d-flex" *ngIf="correo?.errors?.['email']">
+                        (Debe tener un correo valido ejem: ejemplo@dominio.com).
                     </div>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Retype password">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
+                <div class="input-div two">
+                    <div class="i">
+                        <fa-icon [icon]="iconContrasenia"></fa-icon>
+                    </div>
+                    <div>
+                        <h5>Contraseña</h5>
+                        <input formControlName="contrasenia" name="contrasenia" type="password"
+                            class="input-campo" placeholder="Contraseña">
                     </div>
                 </div>
+                <div *ngIf="contrasenia?.invalid && (contrasenia?.dirty || contrasenia?.touched)" class="text-danger">
+                    <div class="d-flex" *ngIf="contrasenia?.errors?.['required']">
+                        (Contraseña requerido).
+                    </div>
+                    <div class="d-flex" *ngIf="contrasenia?.errors?.['minlength']">
+                        (Debe tener como mínimo 6 caracteres).
+                    </div>
+                    <div class="d-flex" *ngIf="contrasenia?.errors?.['maxlength']">
+                        (Debe tener como máximo 100 caracteres).
+                    </div>
+                </div>
+
                 <div class="row">
-                    <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                            <label for="agreeTerms">
-                                I agree to the <a href="#">terms</a>
-                            </label>
-                        </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
                     </div>
-
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
-                    </div>
-
+    
+                </div>
+                <div>
+                    <p class="mb-1">
+                        <a routerLink="/inicio">Volver al inicio</a>
+                    </p>
                 </div>
             </form>
-            <div class="social-auth-links text-center">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-primary">
-                    <i class="fab fa-facebook mr-2"></i>
-                    Sign up using Facebook
-                </a>
-                <a href="#" class="btn btn-block btn-danger">
-                    <i class="fab fa-google-plus mr-2"></i>
-                    Sign up using Google+
-                </a>
-            </div>
-            <a routerLink="/login" class="text-center">I already have a membership</a>
         </div>
-
     </div>
-
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
+import { ContadorCarritoService } from 'src/app/services/contador-carrito.service';
+import  Swal  from 'sweetalert2';
 
 @Component({
   selector: 'app-carrito',
@@ -11,12 +13,14 @@ export class CarritoComponent implements OnInit {
   eliminar = faTrash;
   
   listaCarrito: any = [];
+  estadoBtnCompra:boolean = false;
+
 
   DetalleCompra = {
     idCompra: 0,
     montoTotal: 0.00,
     fecha: "00/00/0000",
-    hora: "00.00.00",
+    hora: "00:00:00",
     idCliente: 0,
     tipoEntrega: "",
     direccion: "",
@@ -27,7 +31,7 @@ export class CarritoComponent implements OnInit {
   montoTotal: any;
   // montoLocal: any = [];
 
-  constructor() {
+  constructor(private contadorService: ContadorCarritoService) {
     this.montoTotal = 0.00
    }
 
@@ -38,7 +42,12 @@ export class CarritoComponent implements OnInit {
 
   obtenerListaCarrito(){
     // this.montoTotal = 0.00
-    this.listaCarrito = JSON.parse(localStorage.getItem('listaproductos') || '[]') 
+    this.listaCarrito = JSON.parse(localStorage.getItem('listaproductos') || '[]')
+    if(this.listaCarrito.length != 0){
+      this.estadoBtnCompra = true;
+    }else{
+      this.estadoBtnCompra = false;
+    }
   }
 
   eliminarProductoCarrito(producto: any){
@@ -49,6 +58,14 @@ export class CarritoComponent implements OnInit {
       }
     }); 
     localStorage.setItem('listaproductos', JSON.stringify(this.listaCarrito));
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'El producto fue eliminado del carrito',
+      customClass: {
+        confirmButton: 'cancel-button'
+      }
+    })
 
     this.obtenerListaCarrito();
     this.calcularMonto();
@@ -67,16 +84,7 @@ export class CarritoComponent implements OnInit {
       // this.cantidad = cantidadlocal
     });
     localStorage.setItem('listaproductos', JSON.stringify(this.listaCarrito));
-  
-  }
-
-
-  pagar(){
-    // if(!localStorage.getItem('token')){
-
-    // }else{
-
-    // }
+    this.contadorService.actualizarContador();
   }
 
 }

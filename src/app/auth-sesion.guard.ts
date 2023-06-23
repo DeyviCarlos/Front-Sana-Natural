@@ -6,18 +6,18 @@ import { AuthService } from './services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
-
+export class AuthSesionGuard implements CanActivate {
+  
   constructor(private authService: AuthService,
     private router: Router){
 
   }
-
   canActivate():boolean {
     if(this.authService.verificarToken()){
-      return true;
+      this.router.navigate(['/productos'])
+      return false;
     }
-    this.router.navigate(['/login'])
-    return false;
+    return true;
   }
+  
 }

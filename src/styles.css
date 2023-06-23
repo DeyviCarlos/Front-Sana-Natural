@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.confirm-button{
+    background-color: #3cb815 !important;
+    box-shadow:none;
+}
+
+.cancel-button{
+    background-color: #c72611 !important;
+    box-shadow:none;  
+}

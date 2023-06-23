@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {faShoppingCart,faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { ContadorCarritoService } from 'src/app/services/contador-carrito.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,35 +11,62 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  
+  //iconos
   carrito = faShoppingCart;
   sigout = faSignOutAlt;
 
+  //Componente hijo
+  //contador del carrito de compras
+  //se declara la variable que será usa de parametro por el padre
+  // @Input() contadorhijo1 = 0;
+
   formBuscar: FormGroup;
 
+  //contador actual ----- no se actualiza de manera dinamica
   contador: any;
+  // listaProducto: any = [];
+
+  token:any = false;
+  cliente_session: any;
 
   buscar = "";
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder,private authService: AuthService,
+    private router:Router,private contadorService: ContadorCarritoService) { 
     this.formBuscar = this.fb.group({
       cadena: ['']
     });
   }
 
   ngOnInit(): void {
-    this.buscarProducto()
     this.llenarContadorCarrito()
+    this.token = this.authService.verificarToken()
+    this.llenarUsuarioSesion()
   }
-  buscarProducto(){
-    
+
+  llenarContadorCarrito(){
+
+    this.contadorService.contadorCarrito.subscribe( data =>
+      this.contador = data
+    )
+  
+  }
+  //en caso el buscador esté en la navegación
+  buscarProductosNombre(){
     this.buscar = this.formBuscar.get('cadena')?.value
     console.log(this.buscar)
-  }
-  llenarContadorCarrito(){
-    this.contador = JSON.parse(localStorage.getItem('listaproductos') || '[]').length;
 
-    localStorage.setItem('contador',this.contador)
+    // this.router.navigate(['/productos/',this.buscar])
   }
-  buscarProductosNombre(){
-    
+  llenarUsuarioSesion(){
+    console.log(localStorage.getItem('usuario_nombre'))
+    this.cliente_session = localStorage.getItem('usuario_nombre')
   }
+
+  cerrarSesion(){
+    this.authService.logout();
+  }
+
+
+
 }

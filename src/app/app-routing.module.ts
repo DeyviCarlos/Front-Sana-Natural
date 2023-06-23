@@ -11,29 +11,24 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
+import { AuthGuard } from './auth.guard';
+import { AuthSesionGuard } from './auth-sesion.guard';
 
 const routes: Routes = [
-  {path: 'registrar', component: RegistrarComponent},
-  {path: 'login', component: LoginComponent},
-  {path: '', component: MainLayoutComponent, children: [
+  {path: 'registrar', component: RegistrarComponent,canActivate: [AuthSesionGuard]},
+  {path: 'login', component: LoginComponent,canActivate: [AuthSesionGuard]},
+  {path: '',component: MainLayoutComponent, children: [
     {path: 'inicio', component: InicioComponent},
-    {path: 'nosotros', component: NosotrosComponent},
+    {path: 'nosotros', component: NosotrosComponent,canActivate: [AuthSesionGuard]},
     {path: 'contactanos', component: ContactanosComponent},
     {path: 'productos', component: ProductosComponent},
-    {path: 'mis-compras', component: MisComprasComponent},
+    {path: 'mis-compras', component: MisComprasComponent,canActivate:[AuthGuard] },
     {path: 'carrito', component: CarritoComponent},
-    {path: 'comprar', component: ComprarComponent},
+    {path: 'comprar', component: ComprarComponent,canActivate:[AuthGuard]},
     {path: 'detalle-producto/:id',component: DetalleProductoComponent}
 
   ]},
-  {path: '**', redirectTo: '', pathMatch: 'full'}
-  //login-sistema
-  
-  //dashboard
-  //dashboard/ventas
-  //dashboard/home
-  //dashboard/usuarios
-  //dasboard/
+  {path: '**', redirectTo: '/inicio', pathMatch: 'full'}
 ];
 
 @NgModule({

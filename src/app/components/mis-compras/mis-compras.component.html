@@ -19,10 +19,10 @@
                             ENTREGA
                         </th>
                         <th scope="col">
-                            ESTADO
+                            ESTADO DE LA ORDEN
                         </th>
                         <th scope="col">
-                            PRECIO
+                            MONTO TOTAL
                         </th>
                         <th scope="col">
                             ACCIONES
@@ -30,25 +30,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let compras of data_compras">
+                    <tr *ngFor="let compra of miscompras">
                         <td>
-                            {{ compras.codigo }}
+                            {{ compra.id_orden }}
                         </td>
                         <td>
-                            {{ compras.fecha }}
+                            {{ compra.fecha_venta }}
                         </td>
                         <td>
-                            {{ compras.tipo }}
+                            {{ compra.nombre_entrega }}
                         </td>
                         <td>
-                            {{ compras.estado }}
+                            {{ compra.estado_entrega_orden }}
                         </td>
                         <td>
-                            {{ compras.monto_total }}
+                            {{ compra.monto_total }}
                         </td>
                         <td>
-                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal-compra">
-                                <fa-icon [icon]="detallecompras"></fa-icon>
+                            <button class="btn btn-info" (click)="detalleCompras(compra.id_orden)">
+                                <fa-icon [icon]="icondetallecompras"></fa-icon>
                             </button>
                         </td>
                     </tr>
@@ -58,29 +58,3 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="modal-compra">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">{{ titulo }}</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>

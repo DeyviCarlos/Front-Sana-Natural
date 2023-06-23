@@ -10,7 +10,7 @@
 }
 
 .section-contacto-general-fondo {
-    background: url(../../../assets/resource/img/fondo-contactanos1.PNG);
+    background: url(/assets/resource/img/fondo-contactanos1.PNG);
     background-repeat: no-repeat;
     padding: 0;
 }

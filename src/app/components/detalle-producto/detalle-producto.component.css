@@ -7,3 +7,39 @@
 .img-img-detalle{
     width: 100%;
 }
+.btn-carrito{
+    background-color: #3cb815;
+    color: #fff;
+}
+.btn-carrito:hover{
+    background-color: #f75f1d;
+}
+
+@media (max-width: 1200px) {
+
+    .img-detalle{
+        width: 400px;
+    }
+
+}
+
+@media (max-width: 991px) {
+
+    .img-detalle{
+        width: 300px;
+    }
+
+}
+@media (max-width: 767px) {
+
+    .contenedor-detalle{
+        display: block;
+   }
+   .image-detalle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+   }
+
+}

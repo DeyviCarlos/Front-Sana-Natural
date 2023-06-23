@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     min-height: 559px;
-    background: url(../../../assets/resource/img/fondo-final.PNG);
+    background: url(/assets/resource/img/fondo-final.PNG);
     background-repeat: no-repeat;
     background-size: cover;
   }
